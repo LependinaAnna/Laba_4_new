@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include <locale.h>
+#include <stdio.h>
+int var_16(int a, int b, int c);
+
+int main()
+{
+	setlocale(LC_ALL, "RUS"); 
+	int a, b, c;
+	int result;
+	puts("Введите первый параметр кислотности");
+	scanf("%d", &a);
+	puts("Введите второй параметр кислотности");
+	scanf("%d", &b);
+	puts("Введите третий параметр кислотности");
+	scanf("%d", &c);
+	printf("Введённые параметры кислотности: A = %d, B = %d, C = %d\n", a, b, c);
+	result = var_16(a, b, c);
+	if (result == 1) {
+		printf("Лунка идеальная для посадки\n");
+	}
+	else {
+		printf("Лунка не подходит для посадки\n");
+	}
+	return 0;
+}
+
+int var_16(int a, int b, int c)
+{
+	int res;
+	res = ((a % 3 == 0) && (b % 3 == 0) && (c % 3 == 0));
+	return res;
+}
